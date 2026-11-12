@@ -47,10 +47,12 @@ def make_dolphin_file(userdir: pathlib.Path):
             "DumpAudioSilent": "True",
             "Backend": "ALSA",
         },
+        '''
         "Display": {
             "RenderToMain": "True",
             "RenderWindowAutoSize": "True",
         },
+        '''
     }
     filename = userdir.joinpath("Config", "Dolphin.ini")
     with make_ini_file(filename, settings) as (name, handle):
@@ -61,10 +63,12 @@ def make_dolphin_file(userdir: pathlib.Path):
 def make_gfx_file(userdir: pathlib.Path, user_settings):
     # Could use Settings.DumpFramesAsImages, then detect all-black images
     settings = {
+        '''
         "Settings": {
             "AspectRatio": "0",
             "InternalResolutionFrameDumps": "True",
         },
+        '''
     }
     util.update_dict(settings, user_settings)
     filename = userdir.joinpath("Config", "GFX.ini")

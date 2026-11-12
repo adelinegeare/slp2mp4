@@ -19,19 +19,24 @@ class DolphinRunner:
         self.ssbm_iso = config["paths"]["ssbm_iso"]
         self.video_backend = config["dolphin"]["backend"]
         self.user_gfx = {
+            '''
             "Settings": {
                 "EFBScale": config["dolphin"]["resolution"],
                 "BitrateKbps": str(config["dolphin"]["bitrate"]),
             },
+            '''
         }
         # https://github.com/project-slippi/Ishiiruka/blob/3e5b185ae080e8dca5e939369572d94d20049fea/Data/Sys/GameSettings/GAL.ini#L21
         # Need to override this setting for non-integral scaling
         self.user_gal = {
+            '''
             "Video_Settings": {
                 "EFBScale": config["dolphin"]["resolution"],
             },
+            '''
         }
         self.user_gecko = {
+            '''
             "Gecko_Enabled": {
                 key: None
                 for key, value in config["dolphin"]["gecko_codes"].items()
@@ -42,6 +47,7 @@ class DolphinRunner:
                 for key, value in config["dolphin"]["gecko_codes"].items()
                 if value is False
             },
+            '''
         }
         self.log = log.get_logger()
 
